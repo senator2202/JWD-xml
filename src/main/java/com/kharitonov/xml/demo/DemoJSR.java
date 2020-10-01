@@ -1,4 +1,4 @@
-package demo;
+package com.kharitonov.xml.demo;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
