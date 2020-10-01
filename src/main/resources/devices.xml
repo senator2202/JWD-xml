@@ -98,4 +98,52 @@
         <frequency>1900</frequency>
         <cores>1</cores>
     </d:Processor>
+    <d:KeyBoard id="keyboard5" serial="C4H5O6">
+        <manufacturer>Defender</manufacturer>
+        <model>Element HB-190 USB RU</model>
+        <price>8.09</price>
+        <lighting>false</lighting>
+        <keys>110</keys>
+    </d:KeyBoard>
+    <d:Monitor id="monitor5" resolution="4K">
+        <manufacturer>Samsung</manufacturer>
+        <model>U32R590CWI</model>
+        <price>962.63</price>
+        <diagonal>32</diagonal>
+        <matrix>VA</matrix>
+        <curved>true</curved>
+        <connection>HDMI</connection>
+        <connection>DisplayPort</connection>
+    </d:Monitor>
+    <d:Processor id="processor5" manufactureDate="2020-06-01" serial="C3H2O1">
+        <manufacturer>Intel</manufacturer>
+        <model>Xeon Gold 6258R</model>
+        <price>16598.56</price>
+        <frequency>4000</frequency>
+        <cores>28</cores>
+    </d:Processor>
+    <d:KeyBoard id="keyboard6" serial="C111H73OH22">
+        <manufacturer>HyperX</manufacturer>
+        <model>Alloy FPS Pro</model>
+        <price>270.84</price>
+        <lighting>true</lighting>
+        <keys>120</keys>
+    </d:KeyBoard>
+    <d:Monitor id="monitor6" manufactureDate="2018-05-01">
+        <manufacturer>LG</manufacturer>
+        <model>32UK550-B</model>
+        <price>995.07</price>
+        <diagonal>31.5</diagonal>
+        <matrix>VA</matrix>
+        <curved>false</curved>
+        <connection>HDMI</connection>
+        <connection>DisplayPort</connection>
+    </d:Monitor>
+    <d:Processor id="processor6" manufactureDate="2017-08-01" serial="C19H29O39">
+        <manufacturer>Amd</manufacturer>
+        <model>Ryzen 5 1600</model>
+        <price>298.91</price>
+        <frequency>3600</frequency>
+        <cores>6</cores>
+    </d:Processor>
 </d:devices>
