@@ -35,22 +35,22 @@ public class ObjectFactory {
 
     @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "KeyBoard", substitutionHeadNamespace = "http://www.example.com/DeviceStore", substitutionHeadName = "Device")
     public JAXBElement<KeyBoard> createKeyBoard(KeyBoard value) {
-        return new JAXBElement<KeyBoard>(_KeyBoard_QNAME, KeyBoard.class, null, value);
+        return new JAXBElement<>(_KeyBoard_QNAME, KeyBoard.class, null, value);
     }
 
     @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "Device")
     public JAXBElement<Device> createDevice(Device value) {
-        return new JAXBElement<Device>(_Device_QNAME, Device.class, null, value);
+        return new JAXBElement<>(_Device_QNAME, Device.class, null, value);
     }
 
     @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "Monitor", substitutionHeadNamespace = "http://www.example.com/DeviceStore", substitutionHeadName = "Device")
     public JAXBElement<Monitor> createMonitor(Monitor value) {
-        return new JAXBElement<Monitor>(_Monitor_QNAME, Monitor.class, null, value);
+        return new JAXBElement<>(_Monitor_QNAME, Monitor.class, null, value);
     }
 
     @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "Processor", substitutionHeadNamespace = "http://www.example.com/DeviceStore", substitutionHeadName = "Device")
     public JAXBElement<Processor> createProcessor(Processor value) {
-        return new JAXBElement<Processor>(_Processor_QNAME, Processor.class, null, value);
+        return new JAXBElement<>(_Processor_QNAME, Processor.class, null, value);
     }
 
 }
