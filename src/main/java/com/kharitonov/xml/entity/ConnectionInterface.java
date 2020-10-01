@@ -4,24 +4,6 @@ import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
-
-/**
- * <p>Java class for ConnectionInterface.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="ConnectionInterface">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="HDMI"/>
- *     &lt;enumeration value="DVI"/>
- *     &lt;enumeration value="VGA"/>
- *     &lt;enumeration value="Thunderbolt"/>
- *     &lt;enumeration value="DisplayPort"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- */
 @XmlType(name = "ConnectionInterface", namespace = "http://www.example.com/DeviceStore")
 @XmlEnum
 public enum ConnectionInterface {
@@ -33,6 +15,7 @@ public enum ConnectionInterface {
     THUNDERBOLT("Thunderbolt"),
     @XmlEnumValue("DisplayPort")
     DISPLAY_PORT("DisplayPort");
+
     private final String value;
 
     ConnectionInterface(String v) {
