@@ -1,4 +1,4 @@
-package com.kharitonov.xml.entity;
+package com.kharitonov.xml.entity.generated;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Matrix", namespace = "http://www.example.com/DeviceStore")
 @XmlEnum
 public enum Matrix {
-
     IPS("IPS"),
     @XmlEnumValue("TN+FILM")
     TN_FILM("TN+FILM"),

@@ -1,4 +1,4 @@
-package com.kharitonov.xml.entity;
+package com.kharitonov.xml.entity.generated;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.*;

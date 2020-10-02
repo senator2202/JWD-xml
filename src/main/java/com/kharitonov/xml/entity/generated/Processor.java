@@ -1,4 +1,4 @@
-package com.kharitonov.xml.entity;
+package com.kharitonov.xml.entity.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,6 +13,9 @@ public class Processor extends Device {
 
     protected int frequency;
     protected int cores;
+
+    public Processor() {
+    }
 
     public int getFrequency() {
         return frequency;

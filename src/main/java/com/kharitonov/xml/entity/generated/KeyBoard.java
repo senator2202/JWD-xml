@@ -1,4 +1,4 @@
-package com.kharitonov.xml.entity;
+package com.kharitonov.xml.entity.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,6 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 public class KeyBoard extends Device {
     protected boolean lighting;
     protected int keys;
+
+    public KeyBoard() {
+    }
 
     public boolean isLighting() {
         return lighting;

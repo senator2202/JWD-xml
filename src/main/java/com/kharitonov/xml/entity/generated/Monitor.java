@@ -1,4 +1,4 @@
-package com.kharitonov.xml.entity;
+package com.kharitonov.xml.entity.generated;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -23,6 +23,9 @@ public class Monitor extends Device {
     protected List<ConnectionInterface> connection;
     @XmlAttribute(name = "resolution")
     protected String resolution;
+
+    public Monitor() {
+    }
 
     public double getDiagonal() {
         return diagonal;
