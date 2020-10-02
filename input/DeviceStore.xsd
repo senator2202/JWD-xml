@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/DeviceStore"
+        xmlns:d="http://www.example.com/DeviceStore">
+
+    <complexType name="Device">
+        <sequence>
+            <element name="manufacturer" type="string"/>
+            <element name="model" type="string"/>
+            <element name="price" type="double"/>
+        </sequence>
+        <attribute name="id" type="d:Id" use="required"/>
+        <attribute name="serial" type="string"/>
+        <attribute name="manufactureDate" type="date"/>
+    </complexType>
+
+    <simpleType name="Id">
+        <restriction base="ID">
+            <pattern value="[a-zA-Z]{3}[a-zA-Z0-9_]*"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Year">
+        <restriction base="int">
+            <minExclusive value="2000"/>
+            <maxInclusive value="2020"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Monitor">
+        <complexContent>
+            <extension base="d:Device">
+                <sequence>
+                    <element name="diagonal" type="double"/>
+                    <element name="matrix" type="d:Matrix"/>
+                    <element name="curved" type="boolean" default="false"/>
+                    <element name="connection" type="d:ConnectionInterface" maxOccurs="5"/>
+                </sequence>
+                <attribute name="resolution" type="d:Resolution" default="FullHd"/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="Resolution">
+        <restriction base="string">
+            <enumeration value="HD"/>
+            <enumeration value="FullHd"/>
+            <enumeration value="2K"/>
+            <enumeration value="4K"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Matrix">
+        <restriction base="string">
+            <enumeration value="IPS"/>
+            <enumeration value="TN+FILM"/>
+            <enumeration value="VA"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="ConnectionInterface">
+        <restriction base="string">
+            <enumeration value="HDMI"/>
+            <enumeration value="DVI"/>
+            <enumeration value="VGA"/>
+            <enumeration value="Thunderbolt"/>
+            <enumeration value="DisplayPort"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Processor">
+        <complexContent>
+            <extension base="d:Device">
+                <sequence>
+                    <element name="frequency" type="d:Frequency"/>
+                    <element name="cores" type="d:Cores"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="Frequency">
+        <restriction base="int">
+            <minExclusive value="0"/>
+            <maxExclusive value="6000"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Cores">
+        <restriction base="int">
+            <minInclusive value="1"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="KeyBoard">
+        <complexContent>
+            <extension base="d:Device">
+                <sequence>
+                    <element name="lighting" type="boolean"/>
+                    <element name="keys" type="d:Keys"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <simpleType name="Keys">
+        <restriction base="int">
+            <minInclusive value="50"/>
+        </restriction>
+    </simpleType>
+
+    <element name="Device" type="d:Device" abstract="true"/>
+
+    <element name="Monitor" type="d:Monitor" substitutionGroup="d:Device"/>
+
+    <element name="Processor" type="d:Processor" substitutionGroup="d:Device"/>
+
+    <element name="KeyBoard" type="d:KeyBoard" substitutionGroup="d:Device"/>
+
+    <element name="DeviceStore">
+        <complexType>
+            <sequence>
+                <element ref="d:Device" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>
