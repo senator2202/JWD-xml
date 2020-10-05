@@ -5,15 +5,15 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KeyBoard", namespace = "http://www.example.com/DeviceStore", propOrder = {
+@XmlType(name = "Keyboard", namespace = "http://www.example.com/DeviceStore", propOrder = {
         "lighting",
         "keys"
 })
-public class KeyBoard extends Device {
+public class Keyboard extends Device {
     protected boolean lighting;
     protected int keys;
 
-    public KeyBoard() {
+    public Keyboard() {
     }
 
     public boolean isLighting() {

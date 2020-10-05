@@ -1,31 +1,49 @@
 package com.kharitonov.xml.parser;
 
-import com.kharitonov.xml.analyzer.DeviceStoreXmlAnalyzer;
-import com.kharitonov.xml.exception.ProjectXmlParserException;
+import com.kharitonov.xml.builder.DeviceBuilder;
+import com.kharitonov.xml.entity.Device;
+import com.kharitonov.xml.entity.generated.DeviceStore;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class XmlDomParser {
-    public void parse(String fileName) throws ProjectXmlParserException {
-        File fXmlFile = new File(fileName);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        try {
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document document = dBuilder.parse(fXmlFile);
-            Element root = document.getDocumentElement();
-            DeviceStoreXmlAnalyzer analyzer = new DeviceStoreXmlAnalyzer();
-            analyzer.analyze(root);
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new ProjectXmlParserException(e);
+    public List<Device> parse(Document document) {
+        List<Device> devices = new ArrayList<>();
+        Element root = document.getDocumentElement();
+        NodeList nodeList = root.getChildNodes();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+            if (node.getNodeType()==Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+                String tag = element.getTagName();
+                DeviceBuilder builder = BuilderProvider.provide(tag);
+                Device device = builder.build(element);
+                devices.add(device);
+            }
         }
+        return devices;
+    }
+
+    public DeviceStore fromXmlToObject(String filePath) {
+        try {
+            // создаем объект JAXBContext - точку входа для JAXB
+            JAXBContext jaxbContext = JAXBContext.newInstance(DeviceStore.class);
+            Unmarshaller un = jaxbContext.createUnmarshaller();
+
+            DeviceStore store = (DeviceStore) un.unmarshal(new File(filePath));
+            int a=1;
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -8,7 +8,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _KeyBoard_QNAME = new QName("http://www.example.com/DeviceStore", "KeyBoard");
+    private final static QName _Keyboard_QNAME = new QName("http://www.example.com/DeviceStore", "Keyboard");
     private final static QName _Device_QNAME = new QName("http://www.example.com/DeviceStore", "Device");
     private final static QName _Monitor_QNAME = new QName("http://www.example.com/DeviceStore", "Monitor");
     private final static QName _Processor_QNAME = new QName("http://www.example.com/DeviceStore", "Processor");
@@ -29,13 +29,13 @@ public class ObjectFactory {
         return new Processor();
     }
 
-    public KeyBoard createKeyBoard() {
-        return new KeyBoard();
+    public Keyboard createKeyboard() {
+        return new Keyboard();
     }
 
-    @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "KeyBoard", substitutionHeadNamespace = "http://www.example.com/DeviceStore", substitutionHeadName = "Device")
-    public JAXBElement<KeyBoard> createKeyBoard(KeyBoard value) {
-        return new JAXBElement<>(_KeyBoard_QNAME, KeyBoard.class, null, value);
+    @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "Keyboard", substitutionHeadNamespace = "http://www.example.com/DeviceStore", substitutionHeadName = "Device")
+    public JAXBElement<Keyboard> createKeyboard(Keyboard value) {
+        return new JAXBElement<>(_Keyboard_QNAME, Keyboard.class, null, value);
     }
 
     @XmlElementDecl(namespace = "http://www.example.com/DeviceStore", name = "Device")

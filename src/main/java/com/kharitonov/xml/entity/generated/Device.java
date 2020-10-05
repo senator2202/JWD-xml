@@ -14,7 +14,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlSeeAlso({
         Monitor.class,
         Processor.class,
-        KeyBoard.class
+        Keyboard.class
 })
 public class Device {
     @XmlElement(required = true)

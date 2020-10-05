@@ -22,7 +22,7 @@ public class DeviceFactory {
                 return new Processor();
             }
             case KEY_BOARD: {
-                return new KeyBoard();
+                return new Keyboard();
             }
             default: {
                 return null;

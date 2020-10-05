@@ -53,7 +53,7 @@
     <simpleType name="Matrix">
         <restriction base="string">
             <enumeration value="IPS"/>
-            <enumeration value="TN+FILM"/>
+            <enumeration value="TN_FILM"/>
             <enumeration value="VA"/>
         </restriction>
     </simpleType>
@@ -64,7 +64,7 @@
             <enumeration value="DVI"/>
             <enumeration value="VGA"/>
             <enumeration value="Thunderbolt"/>
-            <enumeration value="DisplayPort"/>
+            <enumeration value="Display_Port"/>
         </restriction>
     </simpleType>
 
@@ -92,7 +92,7 @@
         </restriction>
     </simpleType>
 
-    <complexType name="KeyBoard">
+    <complexType name="Keyboard">
         <complexContent>
             <extension base="d:Device">
                 <sequence>
@@ -115,7 +115,7 @@
 
     <element name="Processor" type="d:Processor" substitutionGroup="d:Device"/>
 
-    <element name="KeyBoard" type="d:KeyBoard" substitutionGroup="d:Device"/>
+    <element name="Keyboard" type="d:Keyboard" substitutionGroup="d:Device"/>
 
     <element name="DeviceStore">
         <complexType>
