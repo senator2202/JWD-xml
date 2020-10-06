@@ -4,9 +4,12 @@ import com.kharitonov.xml.entity.ConnectionInterface;
 import com.kharitonov.xml.entity.Device;
 import com.kharitonov.xml.entity.Matrix;
 import com.kharitonov.xml.entity.Monitor;
+import org.apache.commons.collections4.MultiValuedMap;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import java.util.Collection;
 
 public class MonitorBuilder extends DeviceBuilder {
     public MonitorBuilder() {
@@ -25,13 +28,33 @@ public class MonitorBuilder extends DeviceBuilder {
             Node node = connections.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 String connection = node.getTextContent().toUpperCase();
-                ((Monitor)device).addConnection(ConnectionInterface.valueOf(connection));
+                ((Monitor) device).addConnection(ConnectionInterface.valueOf(connection));
             }
         }
-        ((Monitor)device).setResolution(resolution);
-        ((Monitor)device).setDiagonal(Double.parseDouble(diagonal));
-        ((Monitor)device).setMatrix(Matrix.valueOf(matrix));
-        ((Monitor)device).setCurved(Boolean.parseBoolean(curved));
+        ((Monitor) device).setResolution(resolution);
+        ((Monitor) device).setDiagonal(Double.parseDouble(diagonal));
+        ((Monitor) device).setMatrix(Matrix.valueOf(matrix));
+        ((Monitor) device).setCurved(Boolean.parseBoolean(curved));
         return device;
     }
+
+    @Override
+    public Device build(MultiValuedMap<String, String> map) {
+        buildParent(map);
+        String resolution = map.get(TagName.RESOLUTION).stream().findAny().orElse(BLANK);
+        String diagonal = map.get(TagName.DIAGONAL).iterator().next();
+        String matrix = map.get(TagName.MATRIX).iterator().next();
+        String curved = map.get(TagName.CURVED).iterator().next();
+        Collection<String> connections = map.get(TagName.CONNECTION);
+        for (String connection : connections) {
+            ((Monitor) device).addConnection(ConnectionInterface.valueOf(connection.toUpperCase()));
+        }
+        ((Monitor) device).setResolution(resolution);
+        ((Monitor) device).setDiagonal(Double.parseDouble(diagonal));
+        ((Monitor) device).setMatrix(Matrix.valueOf(matrix));
+        ((Monitor) device).setCurved(Boolean.parseBoolean(curved));
+        return device;
+    }
+
+
 }

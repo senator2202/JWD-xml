@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<d:DeviceStore xmlns:d="http://www.example.com/DeviceStore"
+<DeviceStore xmlns="http://www.example.com/DeviceStore"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.example.com/DeviceStore DeviceStore.xsd ">
-    <d:Keyboard id="keyboard1" manufactureDate="2019-02-02">
+    <Keyboard id="keyboard1" manufactureDate="2019-02-02">
         <manufacturer>Logitech</manufacturer>
         <model>G102</model>
         <price>100</price>
         <lighting>true</lighting>
         <keys>155</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor1" resolution="2K" serial="C2H5OH">
+    </Keyboard>
+    <Monitor id="monitor1" resolution="2K" serial="C2H5OH">
         <manufacturer>LG</manufacturer>
         <model>W241E02H23</model>
         <price>322.5</price>
@@ -19,22 +19,22 @@
         <connection>HDMI</connection>
         <connection>DVI</connection>
         <connection>VGA</connection>
-    </d:Monitor>
-    <d:Processor id="processor1" manufactureDate="2013-05-01">
+    </Monitor>
+    <Processor id="processor1" manufactureDate="2013-05-01">
         <manufacturer>Intel</manufacturer>
         <model>core i5</model>
         <price>250</price>
         <frequency>1231</frequency>
         <cores>6</cores>
-    </d:Processor>
-    <d:Keyboard id="keyboard2" manufactureDate="2020-02-01" serial="C4H7OH2">
+    </Processor>
+    <Keyboard id="keyboard2" manufactureDate="2020-02-01" serial="C4H7OH2">
         <manufacturer>SteelSeries</manufacturer>
         <model>Apex 3</model>
         <price>263.86</price>
         <lighting>true</lighting>
         <keys>125</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor2">
+    </Keyboard>
+    <Monitor id="monitor2">
         <manufacturer>Dell</manufacturer>
         <model>U2412M</model>
         <price>439.3</price>
@@ -43,22 +43,22 @@
         <curved>false</curved>
         <connection>DVI</connection>
         <connection>VGA</connection>
-    </d:Monitor>
-    <d:Processor id="processor2" manufactureDate="2017-08-01">
+    </Monitor>
+    <Processor id="processor2" manufactureDate="2017-08-01">
         <manufacturer>Amd</manufacturer>
         <model>Ryzen 5 1600</model>
         <price>298.91</price>
         <frequency>3600</frequency>
         <cores>6</cores>
-    </d:Processor>
-    <d:Keyboard id="keyboard3" serial="C5H8OH3">
+    </Processor>
+    <Keyboard id="keyboard3" serial="C5H8OH3">
         <manufacturer>Defender</manufacturer>
         <model>Chimera GK-280DL RU</model>
         <price>35.73</price>
         <lighting>true</lighting>
         <keys>120</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor3" manufactureDate="2019-12-01" serial="C2H4" resolution="2K">
+    </Keyboard>
+    <Monitor id="monitor3" manufactureDate="2019-12-01" serial="C2H4" resolution="2K">
         <manufacturer>LG</manufacturer>
         <model>27GL850-B</model>
         <price>1251.14</price>
@@ -67,22 +67,22 @@
         <curved>false</curved>
         <connection>HDMI</connection>
         <connection>Display_Port</connection>
-    </d:Monitor>
-    <d:Processor id="processor3" manufactureDate="2017-08-01" serial="C13O15H18">
+    </Monitor>
+    <Processor id="processor3" manufactureDate="2017-08-01" serial="C13O15H18">
         <manufacturer>Amd</manufacturer>
         <model>Ryzen 7 2700</model>
         <price>437.55</price>
         <frequency>4100</frequency>
         <cores>8</cores>
-    </d:Processor>
-    <d:Keyboard id="keyboard4" manufactureDate="2017-08-01" serial="C9H9O9">
+    </Processor>
+    <Keyboard id="keyboard4" manufactureDate="2017-08-01" serial="C9H9O9">
         <manufacturer>Redragon</manufacturer>
         <model>Mitra</model>
         <price>99.9</price>
         <lighting>true</lighting>
         <keys>103</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor4" resolution="HD" manufactureDate="2013-01-01">
+    </Keyboard>
+    <Monitor id="monitor4" resolution="HD" manufactureDate="2013-01-01">
         <manufacturer>AOC</manufacturer>
         <model>e970Swn</model>
         <price>146.78</price>
@@ -90,22 +90,22 @@
         <matrix>TN_FILM</matrix>
         <curved>false</curved>
         <connection>VGA</connection>
-    </d:Monitor>
-    <d:Processor id="processor4" manufactureDate="2010-03-01" serial="C1H1O1">
+    </Monitor>
+    <Processor id="processor4" manufactureDate="2010-03-01" serial="C1H1O1">
         <manufacturer>AMD</manufacturer>
         <model>Sempron LE-1100</model>
         <price>13.3</price>
         <frequency>1900</frequency>
         <cores>1</cores>
-    </d:Processor>
-    <d:Keyboard id="keyboard5" serial="C4H5O6">
+    </Processor>
+    <Keyboard id="keyboard5" serial="C4H5O6">
         <manufacturer>Defender</manufacturer>
         <model>Element HB-190 USB RU</model>
         <price>8.09</price>
         <lighting>false</lighting>
         <keys>110</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor5" resolution="4K">
+    </Keyboard>
+    <Monitor id="monitor5" resolution="4K">
         <manufacturer>Samsung</manufacturer>
         <model>U32R590CWI</model>
         <price>962.63</price>
@@ -114,22 +114,22 @@
         <curved>true</curved>
         <connection>HDMI</connection>
         <connection>Display_Port</connection>
-    </d:Monitor>
-    <d:Processor id="processor5" manufactureDate="2020-06-01" serial="C3H2O1">
+    </Monitor>
+    <Processor id="processor5" manufactureDate="2020-06-01" serial="C3H2O1">
         <manufacturer>Intel</manufacturer>
         <model>Xeon Gold 6258R</model>
         <price>16598.56</price>
         <frequency>4000</frequency>
         <cores>28</cores>
-    </d:Processor>
-    <d:Keyboard id="keyboard6" serial="C111H73OH22">
+    </Processor>
+    <Keyboard id="keyboard6" serial="C111H73OH22">
         <manufacturer>HyperX</manufacturer>
         <model>Alloy FPS Pro</model>
         <price>270.84</price>
         <lighting>true</lighting>
         <keys>120</keys>
-    </d:Keyboard>
-    <d:Monitor id="monitor6" manufactureDate="2018-05-01">
+    </Keyboard>
+    <Monitor id="monitor6" manufactureDate="2018-05-01">
         <manufacturer>LG</manufacturer>
         <model>32UK550-B</model>
         <price>995.07</price>
@@ -138,12 +138,12 @@
         <curved>false</curved>
         <connection>HDMI</connection>
         <connection>Display_Port</connection>
-    </d:Monitor>
-    <d:Processor id="processor6" manufactureDate="2017-08-01" serial="C19H29O39">
+    </Monitor>
+    <Processor id="processor6" manufactureDate="2017-08-01" serial="C19H29O39">
         <manufacturer>Amd</manufacturer>
         <model>Ryzen 5 1600</model>
         <price>298.91</price>
         <frequency>3600</frequency>
         <cores>6</cores>
-    </d:Processor>
-</d:DeviceStore>
+    </Processor>
+</DeviceStore>

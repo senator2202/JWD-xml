@@ -1,6 +1,5 @@
 package com.kharitonov.xml.entity;
 
-import com.kharitonov.xml.analyzer.DeviceXmlAnalyzer;
 import com.kharitonov.xml.builder.DeviceBuilder;
 import com.kharitonov.xml.builder.KeyboardBuilder;
 import com.kharitonov.xml.builder.MonitorBuilder;
@@ -15,6 +14,17 @@ public enum DeviceType {
 
     DeviceType(DeviceBuilder builder) {
         this.builder = builder;
+    }
+
+    public static boolean contains(String type) {
+        boolean result;
+        try {
+            DeviceType.valueOf(type.toUpperCase());
+            result = true;
+        } catch (IllegalArgumentException e) {
+            result = false;
+        }
+        return result;
     }
 
     public DeviceBuilder getBuilder() {

@@ -1,5 +1,6 @@
 package com.kharitonov.xml.validator;
 
+import com.kharitonov.xml.handler.DeviceErrorHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;
@@ -18,7 +19,7 @@ public class XmlValidator {
         DOMParser parser = new DOMParser();
         boolean result = true;
         try {
-            parser.setErrorHandler(new MyErrorHandler());
+            parser.setErrorHandler(new DeviceErrorHandler());
             parser.setFeature(VALIDATION_URL, true);
             parser.setFeature(SCHEMA_URL, true);
             parser.parse(filename);
