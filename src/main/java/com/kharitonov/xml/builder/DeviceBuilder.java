@@ -7,12 +7,12 @@ import org.w3c.dom.Element;
 import java.util.Calendar;
 
 public abstract class DeviceBuilder {
-    static final String BLANK = "";
-    static final int FIRST_INDEX = 0;
     private static final String DASH = "-";
     private static final int YEAR_INDEX = 0;
     private static final int MONTH_INDEX = 1;
     private static final int DAY_INDEX = 2;
+    static final String BLANK = "";
+    static final int FIRST_INDEX = 0;
     Device device;
 
     void buildParent(Element element) {

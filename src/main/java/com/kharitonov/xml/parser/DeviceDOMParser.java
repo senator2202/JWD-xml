@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeviceDomParser {
+public class DeviceDOMParser {
     public List<Device> parse(String fileName) throws DeviceParseException {
         List<Device> devices = new ArrayList<>();
         Document document;

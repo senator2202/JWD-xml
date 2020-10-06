@@ -1,8 +1,8 @@
 package com.kharitonov.xml.entity;
 
 public class Processor extends Device {
-    protected int frequency;
-    protected int cores;
+    private int frequency;
+    private int cores;
 
     public Processor() {
     }
@@ -22,5 +22,4 @@ public class Processor extends Device {
     public void setCores(int value) {
         this.cores = value;
     }
-
 }

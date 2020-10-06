@@ -110,18 +110,18 @@
         </restriction>
     </simpleType>
 
-    <element name="Device" type="d:Device" abstract="true"/>
+    <element name="device" type="d:Device" abstract="true"/>
 
-    <element name="Monitor" type="d:Monitor" substitutionGroup="d:Device"/>
+    <element name="monitor" type="d:Monitor" substitutionGroup="d:device"/>
 
-    <element name="Processor" type="d:Processor" substitutionGroup="d:Device"/>
+    <element name="processor" type="d:Processor" substitutionGroup="d:device"/>
 
-    <element name="Keyboard" type="d:Keyboard" substitutionGroup="d:Device"/>
+    <element name="keyboard" type="d:Keyboard" substitutionGroup="d:device"/>
 
-    <element name="DeviceStore">
+    <element name="deviceStore">
         <complexType>
             <sequence>
-                <element ref="d:Device" maxOccurs="unbounded"/>
+                <element ref="d:device" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>

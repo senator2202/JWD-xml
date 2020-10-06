@@ -13,7 +13,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.List;
 
-public class DeviceSaxParser {
+public class DeviceSAXParser {
     public List<Device> parse(String fileName) throws DeviceParseException {
         try {
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();

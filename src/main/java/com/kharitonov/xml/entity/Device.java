@@ -4,12 +4,12 @@ import java.util.Calendar;
 
 
 public class Device {
-    protected String manufacturer;
-    protected String model;
-    protected double price;
-    protected String id;
-    protected String serial;
-    protected Calendar manufactureDate;
+    private String manufacturer;
+    private String model;
+    private double price;
+    private String id;
+    private String serial;
+    private Calendar manufactureDate;
 
     public String getManufacturer() {
         return manufacturer;
