@@ -1,7 +1,6 @@
 package com.kharitonov.xml.controller;
 
 import com.kharitonov.xml.entity.Device;
-import com.kharitonov.xml.entity.Monitor;
 import com.kharitonov.xml.exception.DeviceParseException;
 import com.kharitonov.xml.parser.DeviceDOMParser;
 import org.apache.logging.log4j.LogManager;
@@ -30,13 +29,13 @@ public class MainServlet extends javax.servlet.http.HttpServlet {
     private void processRequest (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DeviceDOMParser parser = new DeviceDOMParser();
         try {
-            List<Device> devices = parser.parse("input/deviceStore.xml");
+            List<Device> devices = parser.parse("deviceStore.xml");
             request.setAttribute("devices", devices);
         } catch (DeviceParseException e) {
             LOGGER.error(e);
         }
         RequestDispatcher dispatcher =
-                getServletContext().getRequestDispatcher("/index.jsp");
+                getServletContext().getRequestDispatcher("/result.jsp");
         dispatcher.forward(request, response);
     }
 }
