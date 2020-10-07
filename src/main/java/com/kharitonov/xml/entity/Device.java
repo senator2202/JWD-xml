@@ -1,7 +1,6 @@
 package com.kharitonov.xml.entity;
 
 import java.util.Calendar;
-import java.util.Objects;
 
 
 public class Device {
@@ -79,16 +78,17 @@ public class Device {
         if (Double.compare(device.price, price) != 0) {
             return false;
         }
-        if (!Objects.equals(manufacturer, device.manufacturer)) {
+        if (manufacturer != null
+                ? !manufacturer.equals(device.manufacturer) : device.manufacturer != null) {
             return false;
         }
-        if (!Objects.equals(model, device.model)) {
+        if (model != null ? !model.equals(device.model) : device.model != null) {
             return false;
         }
-        if (!Objects.equals(id, device.id)) {
+        if (id != null ? !id.equals(device.id) : device.id != null) {
             return false;
         }
-        if (!Objects.equals(serial, device.serial)) {
+        if (serial != null ? !serial.equals(device.serial) : device.serial != null) {
             return false;
         }
         return manufactureDate != null

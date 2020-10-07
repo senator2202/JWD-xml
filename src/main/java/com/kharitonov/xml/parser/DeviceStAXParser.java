@@ -7,6 +7,8 @@ import com.kharitonov.xml.exception.DeviceParseException;
 import com.kharitonov.xml.util.BuilderProvider;
 import org.apache.commons.collections4.MultiValuedMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -21,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class DeviceStAXParser {
+    private static final Logger LOGGER = LogManager.getLogger(DeviceStAXParser.class);
     private static final String ROOT_ELEMENT = "deviceStore";
 
     public List<Device> parse(String fileName) throws DeviceParseException {
@@ -42,6 +45,7 @@ public class DeviceStAXParser {
         } catch (XMLStreamException | IOException e) {
             throw new DeviceParseException(e);
         }
+        LOGGER.info("{} devices were successfully parsed!", devices.size());
         return devices;
     }
 

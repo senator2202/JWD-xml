@@ -52,11 +52,7 @@ public class Monitor extends Device {
     }
 
     public String getResolution() {
-        if (resolution == null) {
-            return "FullHd";
-        } else {
-            return resolution;
-        }
+        return Objects.requireNonNullElse(resolution, "FullHd");
     }
 
     public void setResolution(String value) {
@@ -86,10 +82,10 @@ public class Monitor extends Device {
         if (matrix != monitor.matrix) {
             return false;
         }
-        if (!Objects.equals(connections, monitor.connections)) {
+        if (connections != null ? !connections.equals(monitor.connections) : monitor.connections != null) {
             return false;
         }
-        return Objects.equals(resolution, monitor.resolution);
+        return resolution != null ? resolution.equals(monitor.resolution) : monitor.resolution == null;
     }
 
     @Override

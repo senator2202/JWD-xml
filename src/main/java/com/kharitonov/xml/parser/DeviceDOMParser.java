@@ -4,6 +4,8 @@ import com.kharitonov.xml.builder.DeviceBuilder;
 import com.kharitonov.xml.entity.Device;
 import com.kharitonov.xml.exception.DeviceParseException;
 import com.kharitonov.xml.util.BuilderProvider;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeviceDOMParser {
+    private static final Logger LOGGER = LogManager.getLogger(DeviceDOMParser.class);
+
     public List<Device> parse(String fileName) throws DeviceParseException {
         List<Device> devices = new ArrayList<>();
         Document document;
@@ -39,6 +43,7 @@ public class DeviceDOMParser {
                 devices.add(device);
             }
         }
+        LOGGER.info("{} devices were successfully parsed!", devices.size());
         return devices;
     }
 
