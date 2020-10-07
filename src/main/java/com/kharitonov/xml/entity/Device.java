@@ -11,6 +11,10 @@ public class Device {
     private String serial;
     private Calendar manufactureDate;
 
+    Device() {
+        serial = new String();
+    }
+
     public String getManufacturer() {
         return manufacturer;
     }
@@ -59,4 +63,51 @@ public class Device {
         this.manufactureDate = value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Device)) {
+            return false;
+        }
+
+        Device device = (Device) o;
+
+        if (Double.compare(device.price, price) != 0) {
+            return false;
+        }
+        if (manufacturer != null
+                ? !manufacturer.equals(device.manufacturer) : device.manufacturer != null) {
+            return false;
+        }
+        if (model != null ? !model.equals(device.model) : device.model != null) {
+            return false;
+        }
+        if (id != null ? !id.equals(device.id) : device.id != null) {
+            return false;
+        }
+        if (serial != null ? !serial.equals(device.serial) : device.serial != null) {
+            return false;
+        }
+        return manufactureDate != null
+                ? manufactureDate.get(Calendar.YEAR) == device.manufactureDate.get(Calendar.YEAR) &&
+                manufactureDate.get(Calendar.MONTH) == device.manufactureDate.get(Calendar.MONTH) &&
+                manufactureDate.get(Calendar.DATE) == device.manufactureDate.get(Calendar.DATE)
+                : device.manufactureDate == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = manufacturer != null ? manufacturer.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (serial != null ? serial.hashCode() : 0);
+        result = 31 * result + (manufactureDate != null ? manufactureDate.hashCode() : 0);
+        return result;
+    }
 }

@@ -12,6 +12,7 @@ public class Monitor extends Device {
     private String resolution;
 
     public Monitor() {
+        resolution = new String();
     }
 
     public double getDiagonal() {
@@ -61,4 +62,62 @@ public class Monitor extends Device {
         this.resolution = value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Monitor)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        Monitor monitor = (Monitor) o;
+
+        if (Double.compare(monitor.diagonal, diagonal) != 0) {
+            return false;
+        }
+        if (curved != monitor.curved) {
+            return false;
+        }
+        if (matrix != monitor.matrix) {
+            return false;
+        }
+        if (connections != null ? !connections.equals(monitor.connections) : monitor.connections != null) {
+            return false;
+        }
+        return resolution != null ? resolution.equals(monitor.resolution) : monitor.resolution == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        long temp;
+        temp = Double.doubleToLongBits(diagonal);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (matrix != null ? matrix.hashCode() : 0);
+        result = 31 * result + (curved ? 1 : 0);
+        result = 31 * result + (connections != null ? connections.hashCode() : 0);
+        result = 31 * result + (resolution != null ? resolution.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Monitor{");
+        sb.append("manufacturer='").append(getManufacturer()).append('\'');
+        sb.append(", model='").append(getModel()).append('\'');
+        sb.append(", price=").append(getPrice());
+        sb.append(", id='").append(getId()).append('\'');
+        sb.append(", serial='").append(getSerial()).append('\'');
+        sb.append(", diagonal=").append(diagonal).append('\'');
+        sb.append(", matrix=").append(matrix).append('\'');
+        sb.append(", curved=").append(curved).append('\'');
+        sb.append(", connections=").append(connections).append('\'');
+        sb.append(", resolution='").append(resolution).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

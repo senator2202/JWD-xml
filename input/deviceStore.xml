@@ -53,7 +53,7 @@
     </processor>
     <keyboard id="keyboard3" serial="C5H8OH3">
         <manufacturer>Defender</manufacturer>
-        <model>Chimera GK-280DL RU</model>
+        <model>Chimera GK-280DL</model>
         <price>35.73</price>
         <lighting>true</lighting>
         <keys>120</keys>
@@ -68,7 +68,7 @@
         <connection>HDMI</connection>
         <connection>Display_Port</connection>
     </monitor>
-    <processor id="processor3" manufactureDate="2017-08-01" serial="C13O15H18">
+    <processor id="processor3" manufactureDate="2017-08-08" serial="C13O15H18">
         <manufacturer>Amd</manufacturer>
         <model>Ryzen 7 2700</model>
         <price>437.55</price>

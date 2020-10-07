@@ -12,12 +12,9 @@ import org.w3c.dom.NodeList;
 import java.util.Collection;
 
 public class MonitorBuilder extends DeviceBuilder {
-    public MonitorBuilder() {
-        device = new Monitor();
-    }
-
     @Override
     public Device build(Element element) {
+        device = new Monitor();
         buildParent(element);
         String resolution = element.getAttribute(TagName.RESOLUTION);
         String diagonal = element.getElementsByTagName(TagName.DIAGONAL).item(FIRST_INDEX).getTextContent();
@@ -40,6 +37,7 @@ public class MonitorBuilder extends DeviceBuilder {
 
     @Override
     public Device build(MultiValuedMap<String, String> map) {
+        device = new Monitor();
         buildParent(map);
         String resolution = map.get(TagName.RESOLUTION).stream().findAny().orElse(BLANK);
         String diagonal = map.get(TagName.DIAGONAL).iterator().next();

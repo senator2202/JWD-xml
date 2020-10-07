@@ -6,12 +6,9 @@ import org.apache.commons.collections4.MultiValuedMap;
 import org.w3c.dom.Element;
 
 public class KeyboardBuilder extends DeviceBuilder {
-    public KeyboardBuilder() {
-        device = new Keyboard();
-    }
-
     @Override
     public Device build(Element element) {
+        device = new Keyboard();
         buildParent(element);
         String lighting = element.getElementsByTagName(TagName.LIGHTING).item(FIRST_INDEX).getTextContent();
         String keys = element.getElementsByTagName(TagName.KEYS).item(FIRST_INDEX).getTextContent();
@@ -22,6 +19,7 @@ public class KeyboardBuilder extends DeviceBuilder {
 
     @Override
     public Device build(MultiValuedMap<String, String> map) {
+        device = new Keyboard();
         buildParent(map);
         String lighting = map.get(TagName.LIGHTING).iterator().next();
         String keys = map.get(TagName.KEYS).iterator().next();
