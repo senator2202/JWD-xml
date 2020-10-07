@@ -2,6 +2,7 @@ package com.kharitonov.xml.data_provider;
 
 import com.kharitonov.xml.entity.*;
 import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +12,12 @@ public class StaticDataProvider {
     public static final String XML_FILE_PATH = "input/deviceStore.xml";
     public static final String WRONG_FILE_PATH = "tratata.xml";
     public static final List<Device> PARSED_LIST;
-    public static MultiValuedMap KEYBOARD_MAP;
+    public static final MultiValuedMap<String, String> KEYBOARD_MAP;
+    public static final MultiValuedMap<String, String> MONITOR_MAP;
+    public static final MultiValuedMap<String, String> PROCESSOR_MAP;
+    public static final Processor BUILT_PROCESSOR;
+    public static final Monitor BUILT_MONITOR;
+    public static final Keyboard BUILT_KEYBOARD;
 
     static {
         Monitor monitor;
@@ -22,7 +28,7 @@ public class StaticDataProvider {
         keyboard = new Keyboard();
         keyboard.setId("keyboard1");
         calendar = Calendar.getInstance();
-        calendar.set(2019,2,2);
+        calendar.set(2019, 2, 2);
         keyboard.setManufactureDate(calendar);
         keyboard.setManufacturer("Logitech");
         keyboard.setModel("G102");
@@ -47,7 +53,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor1");
         calendar = Calendar.getInstance();
-        calendar.set(2013,5,1);
+        calendar.set(2013, 5, 1);
         processor.setManufactureDate(calendar);
         processor.setManufacturer("Intel");
         processor.setModel("core i5");
@@ -58,7 +64,7 @@ public class StaticDataProvider {
         keyboard = new Keyboard();
         keyboard.setId("keyboard2");
         calendar = Calendar.getInstance();
-        calendar.set(2020,2,1);
+        calendar.set(2020, 2, 1);
         keyboard.setManufactureDate(calendar);
         keyboard.setSerial("C4H7OH2");
         keyboard.setManufacturer("SteelSeries");
@@ -81,7 +87,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor2");
         calendar = Calendar.getInstance();
-        calendar.set(2017,8,1);
+        calendar.set(2017, 8, 1);
         processor.setManufactureDate(calendar);
         processor.setManufacturer("Amd");
         processor.setModel("Ryzen 5 1600");
@@ -101,7 +107,7 @@ public class StaticDataProvider {
         monitor = new Monitor();
         monitor.setId("monitor3");
         calendar = Calendar.getInstance();
-        calendar.set(2019,12,1);
+        calendar.set(2019, 12, 1);
         monitor.setManufactureDate(calendar);
         monitor.setResolution("2K");
         monitor.setSerial("C2H4");
@@ -117,7 +123,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor3");
         calendar = Calendar.getInstance();
-        calendar.set(2017,8,8);
+        calendar.set(2017, 8, 8);
         processor.setManufactureDate(calendar);
         processor.setSerial("C13O15H18");
         processor.setManufacturer("Amd");
@@ -129,7 +135,7 @@ public class StaticDataProvider {
         keyboard = new Keyboard();
         keyboard.setId("keyboard4");
         calendar = Calendar.getInstance();
-        calendar.set(2017,8,1);
+        calendar.set(2017, 8, 1);
         keyboard.setManufactureDate(calendar);
         keyboard.setSerial("C9H9O9");
         keyboard.setManufacturer("Redragon");
@@ -141,7 +147,7 @@ public class StaticDataProvider {
         monitor = new Monitor();
         monitor.setId("monitor4");
         calendar = Calendar.getInstance();
-        calendar.set(2013,1,1);
+        calendar.set(2013, 1, 1);
         monitor.setManufactureDate(calendar);
         monitor.setResolution("HD");
         monitor.setManufacturer("AOC");
@@ -155,7 +161,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor4");
         calendar = Calendar.getInstance();
-        calendar.set(2010,3,1);
+        calendar.set(2010, 3, 1);
         processor.setManufactureDate(calendar);
         processor.setSerial("C1H1O1");
         processor.setManufacturer("AMD");
@@ -188,7 +194,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor5");
         calendar = Calendar.getInstance();
-        calendar.set(2020,6,1);
+        calendar.set(2020, 6, 1);
         processor.setManufactureDate(calendar);
         processor.setSerial("C3H2O1");
         processor.setManufacturer("Intel");
@@ -209,7 +215,7 @@ public class StaticDataProvider {
         monitor = new Monitor();
         monitor.setId("monitor6");
         calendar = Calendar.getInstance();
-        calendar.set(2018,5,1);
+        calendar.set(2018, 5, 1);
         monitor.setManufactureDate(calendar);
         monitor.setManufacturer("LG");
         monitor.setModel("32UK550-B");
@@ -223,7 +229,7 @@ public class StaticDataProvider {
         processor = new Processor();
         processor.setId("processor6");
         calendar = Calendar.getInstance();
-        calendar.set(2017,8,1);
+        calendar.set(2017, 8, 1);
         processor.setManufactureDate(calendar);
         processor.setSerial("C19H29O39");
         processor.setManufacturer("Amd");
@@ -232,5 +238,87 @@ public class StaticDataProvider {
         processor.setFrequency(3600);
         processor.setCores(6);
         PARSED_LIST.add(processor);
+    }
+
+    static {
+        KEYBOARD_MAP = new ArrayListValuedHashMap<>();
+        KEYBOARD_MAP.put("id", "keyboard6");
+        KEYBOARD_MAP.put("serial", "C111H73OH22");
+        KEYBOARD_MAP.put("manufacturer", "HyperX");
+        KEYBOARD_MAP.put("model", "Alloy FPS Pro");
+        KEYBOARD_MAP.put("price", "270.84");
+        KEYBOARD_MAP.put("lighting", "true");
+        KEYBOARD_MAP.put("keys", "120");
+    }
+
+    static {
+        MONITOR_MAP = new ArrayListValuedHashMap<>();
+        MONITOR_MAP.put("id", "monitor6");
+        MONITOR_MAP.put("manufactureDate", "2018-05-01");
+        MONITOR_MAP.put("manufacturer", "LG");
+        MONITOR_MAP.put("model", "32UK550-B");
+        MONITOR_MAP.put("price", "995.07");
+        MONITOR_MAP.put("diagonal", "31.5");
+        MONITOR_MAP.put("matrix", "VA");
+        MONITOR_MAP.put("curved", "false");
+        MONITOR_MAP.put("connection", "HDMI");
+        MONITOR_MAP.put("connection", "DISPLAY_PORT");
+    }
+
+    static {
+        PROCESSOR_MAP = new ArrayListValuedHashMap<>();
+        PROCESSOR_MAP.put("id", "processor6");
+        PROCESSOR_MAP.put("manufactureDate", "2017-08-01");
+        PROCESSOR_MAP.put("serial", "C19H29O39");
+        PROCESSOR_MAP.put("manufacturer", "Amd");
+        PROCESSOR_MAP.put("model", "Ryzen 5 1600");
+        PROCESSOR_MAP.put("price", "298.91");
+        PROCESSOR_MAP.put("frequency", "3600");
+        PROCESSOR_MAP.put("cores", "6");
+    }
+
+    static {
+        BUILT_KEYBOARD = new Keyboard();
+        BUILT_KEYBOARD.setId("keyboard6");
+        BUILT_KEYBOARD.setSerial("C111H73OH22");
+        BUILT_KEYBOARD.setManufacturer("HyperX");
+        BUILT_KEYBOARD.setModel("Alloy FPS Pro");
+        BUILT_KEYBOARD.setPrice(270.84);
+        BUILT_KEYBOARD.setLighting(true);
+        BUILT_KEYBOARD.setKeys(120);
+    }
+
+    static {
+        Calendar calendar = Calendar.getInstance();
+        BUILT_MONITOR = new Monitor();
+        BUILT_MONITOR.setId("monitor6");
+        calendar.set(2018, 5, 1);
+        BUILT_MONITOR.setManufactureDate(calendar);
+        BUILT_MONITOR.setManufacturer("LG");
+        BUILT_MONITOR.setModel("32UK550-B");
+        BUILT_MONITOR.setPrice(995.07);
+        BUILT_MONITOR.setDiagonal(31.5);
+        BUILT_MONITOR.setMatrix(Matrix.VA);
+        BUILT_MONITOR.setCurved(false);
+        BUILT_MONITOR.addConnection(ConnectionInterface.HDMI);
+        BUILT_MONITOR.addConnection(ConnectionInterface.DISPLAY_PORT);
+    }
+
+    static {
+        Calendar calendar = Calendar.getInstance();
+        BUILT_PROCESSOR = new Processor();
+        BUILT_PROCESSOR.setId("processor6");
+        calendar.set(2017, 8, 1);
+        BUILT_PROCESSOR.setManufactureDate(calendar);
+        BUILT_PROCESSOR.setSerial("C19H29O39");
+        BUILT_PROCESSOR.setManufacturer("Amd");
+        BUILT_PROCESSOR.setModel("Ryzen 5 1600");
+        BUILT_PROCESSOR.setPrice(298.91);
+        BUILT_PROCESSOR.setFrequency(3600);
+        BUILT_PROCESSOR.setCores(6);
+    }
+
+    private StaticDataProvider() {
+
     }
 }

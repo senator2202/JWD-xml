@@ -10,7 +10,7 @@ public enum DeviceType {
     PROCESSOR(new ProcessorBuilder()),
     KEYBOARD(new KeyboardBuilder());
 
-    private DeviceBuilder builder;
+    private final DeviceBuilder builder;
 
     DeviceType(DeviceBuilder builder) {
         this.builder = builder;

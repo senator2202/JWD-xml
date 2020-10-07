@@ -52,11 +52,7 @@ public class Keyboard extends Device {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Keyboard{");
-        sb.append("manufacturer='").append(getManufacturer()).append('\'');
-        sb.append(", model='").append(getModel()).append('\'');
-        sb.append(", price=").append(getPrice());
-        sb.append(", id='").append(getId()).append('\'');
-        sb.append(", serial='").append(getSerial()).append('\'');
+        sb.append(super.toString());
         sb.append(", lighting=").append(lighting).append('\'');
         sb.append(", keys=").append(keys);
         sb.append('}');

@@ -1,7 +1,5 @@
 package com.kharitonov.xml.entity;
 
-import java.util.Calendar;
-
 public class Processor extends Device {
     private int frequency;
     private int cores;
@@ -53,11 +51,7 @@ public class Processor extends Device {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Processor{");
-        sb.append("manufacturer='").append(getManufacturer()).append('\'');
-        sb.append(", model='").append(getModel()).append('\'');
-        sb.append(", price=").append(getPrice());
-        sb.append(", id='").append(getId()).append('\'');
-        sb.append(", serial='").append(getSerial()).append('\'');
+        sb.append(super.toString());
         sb.append(", frequency=").append(frequency).append('\'');
         sb.append(", cores=").append(cores);
         sb.append('}');

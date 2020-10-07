@@ -1,9 +1,11 @@
 package com.kharitonov.xml.entity;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 
 public class Device {
+    static final String EMPTY = "";
     private String manufacturer;
     private String model;
     private double price;
@@ -12,7 +14,7 @@ public class Device {
     private Calendar manufactureDate;
 
     Device() {
-        serial = new String();
+        serial = EMPTY;
     }
 
     public String getManufacturer() {
@@ -77,17 +79,16 @@ public class Device {
         if (Double.compare(device.price, price) != 0) {
             return false;
         }
-        if (manufacturer != null
-                ? !manufacturer.equals(device.manufacturer) : device.manufacturer != null) {
+        if (!Objects.equals(manufacturer, device.manufacturer)) {
             return false;
         }
-        if (model != null ? !model.equals(device.model) : device.model != null) {
+        if (!Objects.equals(model, device.model)) {
             return false;
         }
-        if (id != null ? !id.equals(device.id) : device.id != null) {
+        if (!Objects.equals(id, device.id)) {
             return false;
         }
-        if (serial != null ? !serial.equals(device.serial) : device.serial != null) {
+        if (!Objects.equals(serial, device.serial)) {
             return false;
         }
         return manufactureDate != null
@@ -109,5 +110,16 @@ public class Device {
         result = 31 * result + (serial != null ? serial.hashCode() : 0);
         result = 31 * result + (manufactureDate != null ? manufactureDate.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("manufacturer='").append(manufacturer).append('\'');
+        sb.append(", model='").append(model).append('\'');
+        sb.append(", price=").append(price);
+        sb.append(", id='").append(id).append('\'');
+        sb.append(", serial='").append(serial).append('\'');
+        return sb.toString();
     }
 }

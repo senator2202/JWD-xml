@@ -16,7 +16,7 @@ public class DeviceSAXParserTest {
     public void testParse() throws DeviceParseException {
         List<Device> actual = parser.parse(StaticDataProvider.XML_FILE_PATH);
         List<Device> expected = StaticDataProvider.PARSED_LIST;
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test(expectedExceptions = DeviceParseException.class)

@@ -16,4 +16,8 @@ class TagName {
     static final String CONNECTION = "connection";
     static final String FREQUENCY = "frequency";
     static final String CORES = "cores";
+
+    private TagName() {
+
+    }
 }

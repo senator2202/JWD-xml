@@ -2,7 +2,6 @@ package com.kharitonov.xml.parser;
 
 import com.kharitonov.xml.data_provider.StaticDataProvider;
 import com.kharitonov.xml.entity.Device;
-import com.kharitonov.xml.entity.Monitor;
 import com.kharitonov.xml.exception.DeviceParseException;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,7 @@ public class DeviceDOMParserTest {
     public void testParse() throws DeviceParseException {
         List<Device> actual = parser.parse(StaticDataProvider.XML_FILE_PATH);
         List<Device> expected = StaticDataProvider.PARSED_LIST;
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test(expectedExceptions = DeviceParseException.class)

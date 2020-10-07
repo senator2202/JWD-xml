@@ -21,7 +21,7 @@ class StAXStreamProcessor implements AutoCloseable {
     @Override
     public void close() throws XMLStreamException {
         if (reader != null) {
-                reader.close();
+            reader.close();
         }
     }
 }

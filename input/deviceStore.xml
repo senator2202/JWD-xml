@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<deviceStore xmlns="http://www.example.com/DeviceStore"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="deviceStore.xsd deviceStore.xsd ">
+<deviceStore xmlns="http://www.example.com/DeviceStore">
     <keyboard id="keyboard1" manufactureDate="2019-02-02">
         <manufacturer>Logitech</manufacturer>
         <model>G102</model>

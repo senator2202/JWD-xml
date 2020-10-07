@@ -3,6 +3,7 @@ package com.kharitonov.xml.entity;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Monitor extends Device {
     private double diagonal;
@@ -12,7 +13,7 @@ public class Monitor extends Device {
     private String resolution;
 
     public Monitor() {
-        resolution = new String();
+        resolution = EMPTY;
     }
 
     public double getDiagonal() {
@@ -85,10 +86,10 @@ public class Monitor extends Device {
         if (matrix != monitor.matrix) {
             return false;
         }
-        if (connections != null ? !connections.equals(monitor.connections) : monitor.connections != null) {
+        if (!Objects.equals(connections, monitor.connections)) {
             return false;
         }
-        return resolution != null ? resolution.equals(monitor.resolution) : monitor.resolution == null;
+        return Objects.equals(resolution, monitor.resolution);
     }
 
     @Override
@@ -107,11 +108,7 @@ public class Monitor extends Device {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Monitor{");
-        sb.append("manufacturer='").append(getManufacturer()).append('\'');
-        sb.append(", model='").append(getModel()).append('\'');
-        sb.append(", price=").append(getPrice());
-        sb.append(", id='").append(getId()).append('\'');
-        sb.append(", serial='").append(getSerial()).append('\'');
+        sb.append(super.toString());
         sb.append(", diagonal=").append(diagonal).append('\'');
         sb.append(", matrix=").append(matrix).append('\'');
         sb.append(", curved=").append(curved).append('\'');

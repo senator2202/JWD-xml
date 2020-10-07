@@ -15,8 +15,8 @@ import java.util.List;
 
 public class DeviceHandler extends DefaultHandler {
     private static final String ROOT_ELEMENT = "DeviceStore";
-    private List<Device> devices = new ArrayList<>();
-    private MultiValuedMap<String, String> attributeMap = new ArrayListValuedHashMap<>();
+    private final List<Device> devices = new ArrayList<>();
+    private final MultiValuedMap<String, String> attributeMap = new ArrayListValuedHashMap<>();
     private String currentTag;
 
     @Override

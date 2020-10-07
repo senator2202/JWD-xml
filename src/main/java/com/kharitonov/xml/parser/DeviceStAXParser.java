@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DeviceStAXParser {
     private static final String ROOT_ELEMENT = "deviceStore";
@@ -32,32 +33,50 @@ public class DeviceStAXParser {
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
-                    String name = reader.getLocalName();
-                    if (DeviceType.contains(name)) {
-                        int count = reader.getAttributeCount();
-                        for (int i = 0; i < count; i++) {
-                            String attrName = reader.getAttributeLocalName(i);
-                            String attrValue = reader.getAttributeValue(i);
-                            attributeMap.put(attrName, attrValue);
-                        }
-                    } else if (!name.equals(ROOT_ELEMENT)) {
-                        String value = reader.getElementText();
-                        attributeMap.put(name, value);
-                    }
+                    manipulateStartElement(attributeMap, reader);
                 }
                 if (type == XMLStreamConstants.END_ELEMENT) {
-                    String name = reader.getLocalName();
-                    if (DeviceType.contains(name)) {
-                        DeviceBuilder builder = BuilderProvider.provide(name);
-                        Device device = builder.build(attributeMap);
-                        devices.add(device);
-                        attributeMap.clear();
-                    }
+                    manipulateEndElement(attributeMap, reader).ifPresent(devices::add);
                 }
             }
         } catch (XMLStreamException | IOException e) {
             throw new DeviceParseException(e);
         }
         return devices;
+    }
+
+    private void manipulateStartElement(MultiValuedMap<String, String> attributeMap,
+                                        XMLStreamReader reader) throws XMLStreamException {
+        String name = reader.getLocalName();
+        if (DeviceType.contains(name)) {
+            putAttributes(attributeMap, reader);
+        } else if (!name.equals(ROOT_ELEMENT)) {
+            String value = reader.getElementText();
+            attributeMap.put(name, value);
+        }
+    }
+
+    private Optional<Device> manipulateEndElement(MultiValuedMap<String, String> attributeMap,
+                                                  XMLStreamReader reader) {
+        Optional<Device> optionalDevice;
+        String name = reader.getLocalName();
+        if (DeviceType.contains(name)) {
+            DeviceBuilder builder = BuilderProvider.provide(name);
+            Device device = builder.build(attributeMap);
+            optionalDevice = Optional.of(device);
+            attributeMap.clear();
+        } else {
+            optionalDevice = Optional.empty();
+        }
+        return optionalDevice;
+    }
+
+    private void putAttributes(MultiValuedMap<String, String> attributeMap, XMLStreamReader reader) {
+        int count = reader.getAttributeCount();
+        for (int i = 0; i < count; i++) {
+            String attrName = reader.getAttributeLocalName(i);
+            String attrValue = reader.getAttributeValue(i);
+            attributeMap.put(attrName, attrValue);
+        }
     }
 }
